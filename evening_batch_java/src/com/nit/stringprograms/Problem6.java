@@ -2,7 +2,7 @@ package com.nit.stringprograms;
 
 import java.util.Scanner;
 
-//is palindrome or nor\t
+//is palindrome or nor
 public class Problem6 {
 
 	public static void main(String[] args) {

@@ -4,38 +4,34 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Problem5 {
-	
-	public static void addingNewElementsInArray(int [] arr,int newElement,int indexPosition) {
-		
-		int []newArr=new int[arr.length+1];
-		
-		for(int i=0;i<arr.length;i++) {
-			newArr[i]=arr[i];
+
+	public static void addingNewElementsInArray(int[] arr, int newElement, int indexPosition) {
+
+		int[] newArray = new int[arr.length + 1];
+
+		for (int i = 0, j = 0; i < newArray.length; i++) {
+			if (i == indexPosition) {
+				newArray[i] = newElement;
+			} else {
+				newArray[i] = arr[j];  //-->j is going through the originalArray
+				j++;  //--->This way, j and i stay aligned properly for copying elements from originalArray(arr) to newArray
+			}
 		}
-		System.out.println(Arrays.toString(newArr));
-		//not yet completed
-		int temp1=arr[indexPosition];
-		newArr[indexPosition]=newElement;
-		for(int i=indexPosition+1;i<arr.length-1;i++) {
-			int temp=arr[i];
-			arr[i]=arr[i+1];
-			arr[i+1]=temp1;
-		}
-		System.out.println(Arrays.toString(newArr));
-		
+
+		System.out.println(Arrays.toString(newArray));
+
 	}
-	
+
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		int []arr= {2,5,3,8,9};
+		Scanner sc = new Scanner(System.in);
+		int[] arr = { 2, 5, 3, 8, 9 };
 		System.out.println("Enter New Element: ");
-		int newElement=sc.nextInt();
+		int newElement = sc.nextInt();
 		System.out.println("Enter which index position want to add: ");
-		int indexPosition=sc.nextInt();
+		int indexPosition = sc.nextInt();
 		addingNewElementsInArray(arr, newElement, indexPosition);
 		sc.close();
 	}
-	
 
 }
 
